@@ -1,0 +1,11 @@
+﻿@model AbirCarsProject.Models.User
+@using (Html.BeginForm("GetById", "User", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)       
+            <div class="form-group">
+        @Html.LabelFor(m => m.UserId)
+        @Html.PasswordFor(m => m.UserId, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.UserId)
+             </div>    
+            <button type="submit" class="btn btn-primary">Send</button>
+}

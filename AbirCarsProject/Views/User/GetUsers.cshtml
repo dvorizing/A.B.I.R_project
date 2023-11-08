@@ -1,0 +1,43 @@
+﻿@*<h2>All Users</h2>
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>
+            <strong>User ID:</strong> @item.UserId<br />
+            <strong>Username:</strong> @item.Username<br />
+            <strong>Password:</strong> @item.Password
+        </li>
+    }
+</ul>
+
+
+<button onclick="location.href='@Url.Action("PrevUsers", "User")'">PrevUsers</button>
+<button onclick="location.href='@Url.Action("NextUsers", "User")'">NextUsers</button>
+*@
+@*@model List<User>*@
+
+<h2>All Users</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>UserId</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.UserId</td>
+                <td>@user.Username</td>
+                <td>*******</td>
+                <td>
+                    <a asp-action="Update" asp-route-id="@user.UserId">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@user.UserId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
